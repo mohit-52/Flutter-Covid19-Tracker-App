@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_coivd19_tracker_app/Model/WorldStatesModel.dart';
 import 'package:flutter_coivd19_tracker_app/Services/states_services.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -42,7 +43,6 @@ class _WorldStatesScreenState extends State<WorldStatesScreen>
   @override
   Widget build(BuildContext context) {
     StatesServices statesServices = StatesServices();
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -50,10 +50,7 @@ class _WorldStatesScreenState extends State<WorldStatesScreen>
           child: Column(
             children: [
               SizedBox(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.1,
+                height: MediaQuery.of(context).size.height * 0.1,
               ),
               FutureBuilder(
                 future: statesServices.fetchWorldStatesRecords(),
